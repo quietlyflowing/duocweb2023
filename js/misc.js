@@ -3,7 +3,7 @@ function showCurrentYearFooter() {
 //Esto perfectamente podría estar suelto, pero meh.
 let currentYear = new Date().getFullYear();
 document.getElementById("footer").innerHTML = `<div class="container text-center">
-<span class="text-muted">Copyright © ${currentYear} TiendaPET® Ltda.</span>
+<span class="text-light">Copyright © ${currentYear} TiendaPET® Ltda.</span>
 </div>`}
 
 showCurrentYearFooter();
