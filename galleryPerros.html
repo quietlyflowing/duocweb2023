@@ -45,16 +45,16 @@
             <div class="collapse navbar-collapse" id="navbarsExample06">
                 <ul class="navbar-nav me-auto mb-2 mb-xl-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Productos para perros</a>
+                        <a class="nav-link active" href="galleryPerros.html">Productos para perros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active">Productos para gatos</a>
+                        <a class="nav-link active" href="galleryGatos.html">Productos para gatos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active">Nosotros</a>
+                        <a class="nav-link active" href="ourselves.html">Nosotros</a>
                     </li>
                 </ul>
             </div>
@@ -90,8 +90,13 @@
                         <img src="img/correa-spiderman.jpg" class="card-image-top" alt="correa-spiderman">
 
                         <div class="card-body">
-                            <h3 class="card-title"><a href="#" class="text-secondary">Correa Spiderman</a></h3>
-                            <p class="card-text">$12.000</p>
+                            <article
+                            id="7"
+                            price="12.000"
+                            qty="1">
+                                <h3 class="card-title"><a href="#" class="text-secondary">Correa Spiderman</a></h3>
+                                <p class="card-text">$12.000</p>
+                            </article>
                             <a href="#" class="btn btn-primary">Agregar al Carro</a>
                             <button type="button" class="btn btn-secondary">Ver</button>
                         </div>
@@ -104,8 +109,13 @@
                         <img src="img/correa-avengers.jpg" class="card-image-top" alt="correa-avengers">
 
                         <div class="card-body">
+                            <article
+                            id="8"
+                            price="9.990"
+                            qty="1">
                             <h3 class="card-title"><a href="#" class="text-secondary">Correa Avengers</a></h3>
                             <p class="card-text">$9.990</p>
+                            </article>
                             <a href="#" class="btn btn-primary">Agregar al Carro</a>
                             <button type="button" class="btn btn-secondary">Ver</button>
                         </div>
@@ -117,9 +127,14 @@
 
                         <img src="img/correa-minnie.jpg" class="card-image-top" alt="thumbnail">
                         <div class="card-body">
+                            <article
+                            id="9"
+                            price="9.990"
+                            qty="1">
                             <h3 class="card-title"><a href="#" class="text-secondary">Correa Minnie</a>
                             </h3>
                             <p class="card-text">$9.990</p>
+                            </article>
                             <a href="#" class="btn btn-primary">Agregar al Carro</a>
                             <button type="button" class="btn btn-secondary">Ver</button>
                         </div>
@@ -130,8 +145,13 @@
                     <div class="card my-3">
                         <img src="img/bandana-girasoles.jpg" class="card-image-top" alt="bandana-girasoles">
                         <div class="card-body">
+                            <article
+                            id="10"
+                            price="3.000"
+                            qty="1">
                             <h3 class="card-title"><a href="#" class="text-secondary">Bandana Girasoles</a></h3>
                             <p class="card-text">$3.000</p>
+                            </article>
                             <a href="#" class="btn btn-primary">Agregar al Carro</a>
                             <button type="button" class="btn btn-secondary">Ver</button>
                         </div>
@@ -143,8 +163,13 @@
 
                         <img src="img/bandana-frutillas.jpg" class="card-image-top" alt="bandana-frutillas">
                         <div class="card-body">
+                            <article
+                            id="11"
+                            price="3.500"
+                            qty="1">
                             <h3 class="card-title"><a href="#" class="text-secondary">Bandana Frutillas</a></h3>
                             <p class="card-text">$3.500</p>
+                            </article>
                             <a href="#" class="btn btn-primary">Agregar al Carro</a>
                             <button type="button" class="btn btn-secondary">Ver</button>
                         </div>
@@ -157,9 +182,14 @@
                         <img src="img/bandana-marinero.jpg" class="card-image-top" alt="bandana-marinero">
 
                         <div class="card-body">
+                            <article
+                            id="12"
+                            price="3.000"
+                            qty="1">
                             <h3 class="card-title"><a href="#" class="text-secondary">Bandana Marinero</a></h3>
                             <p class="card-text">$3.000</p>
                             <a href="#" class="btn btn-primary">Agregar al Carro</a>
+                            </article>
                             <button type="button" class="btn btn-secondary">Ver</button>
                         </div>
                     </div>
@@ -169,10 +199,7 @@
     </section>
 
     <!--Inicio Footer-->
-    <footer class="footer mt-5 py-3 bg-dark">
-        <div class="container">
-            <span class="text-muted">Place sticky footer content here.</span>
-        </div>
+    <footer id="footer" class="footer mt-5 py-3 bg-dark">
     </footer>
 
 
@@ -180,6 +207,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+        <script src="js/misc.js"></script>
 </body>
 
 </html>
