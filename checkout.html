@@ -15,7 +15,7 @@
       padding: 8px;
     }
 
-    tr(even) {
+    tr{
       background-color: #dddddd;
     }
   </style>
@@ -87,7 +87,7 @@
               <label for="ciudad">Ciudad</label>
               <input type="text" class="form-control" id="ciudad" placeholder="Ingresar Ciudad" name="ciudad">
             </div>
-            </form>f>
+            </form>
 
             <form action="index.html" method="POST">
               <label for="region">
@@ -152,7 +152,7 @@
             <div class="mb-3 mt-3">
               <label for="fecha">Fecha de caducidad</label>
               <input type="text" maxlength='4' class="form-control" id="fecha" placeholder="DD/AA"
-                onkeyup="formatString(event) name=" fecha">
+                onkeyup="formatString(event);"  name="fecha">
             </div>
 
             <button type="submit" class="btn btn-primary">Confirmar</button>
