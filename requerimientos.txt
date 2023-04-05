@@ -1,0 +1,38 @@
+Requerimientos Tienda PET
+
+1. Facilidad de Uso
+Descripción: cualquier usuario con experiencia en internet debe ser capaz de utilizar y entender el sistema.
+Prioridad: Alta
+
+2. Stock
+Descripción: la plataforma debe indicar el stock real de productos disponibles.
+Prioridad: alta
+
+3. Entregar el servicio venta en línea
+Descripción: el usuario debe poder realizar compras a través de la página. 
+Prioridad: alta
+
+4.Monitoreo
+Descripción: el usuario debe poder monitorear sus compras.
+Prioridad: alta
+
+5. Seguimiento
+Descripción: mejorar el proceso de logística de sus productos a los clientes mediante el seguimiento del despacho.
+
+6. Descuentos
+Descripciónn: Permitir generar descuentos o promociones en la página principal.
+Prioridad: alta
+
+7. Suscripción
+Descripción: permitir al usuario suscribirse con una donación  a la fundación sin fines de lucro, esta información ira directamente a la fundación.Otorgar un 5% de descuento en 
+el total de la venta a todos los clientes que estén suscritos.
+Debe permitir cancelar la suscripción.
+Prioridad: alta
+
+8.Carro
+Descripción: debe tener un carro de compras que almacene los productos a comprar seleccionados por el usuario.
+Prioridad: alta
+
+9. Checkout
+Descripción: debe contar con un formulario para el ingreso de datos del usuario para validar su identidad y dirección, y así efectuar la compra en línea.
+Prioridad: alta

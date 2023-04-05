@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TiendaPET</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="icon" href="favicon.png"/>
+    <script src="js/db.js"></script>
+    </head>
+
+<body>
+    <!--Inicio Modal Busqueda-->
+    <div class="modal fade" id="modalBusqueda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Búsqueda no disponible</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Aún no tenemos backend. Todavía no estoy funcionado.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Okey :&#40;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--Fin Modal Búsqueda--> 
+    <!--Inicio Navbar-->
+    <nav class="navbar navbar-expand-xl navbar-dark" aria-label="Barra de navegación" style="background-color: #546c1b">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tienda PET</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample06"
+                aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample06">
+                <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html" aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="galleryPerros.html">Productos para Perros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="galleryGatos.html">Productos para Gatos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="Ourselves.html">Nosotros</a>
+                    </li>
+                </ul>
+            </div>
+            <form role="search">
+                <input class="form-control" data-bs-toggle="modal" data-bs-target="#modalBusqueda" type="search" id="busqueda" placeholder="Búsqueda" aria-label="Búsqueda">
+            </form>
+        </div>
+    </nav>
+    <!--fin navbar-->
+
+    <!--inicio container-->
+    
+    <div class="container mt-3 py-2">
+        <h1>Carro de compras</h1>
+        <section class="mt-2" style="background-color: #eee;">
+        <div class="container h-100 py-5">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10" >
+      
+              <div class="d-flex justify-content-between align-items-center mb-4">
+              </div>
+              
+              <main id="cartContainer"></main>
+      
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                      <div class="col-10">
+                      <button type="button" id="killCarroStorage" class="btn btn-danger btn-block btn-lg">Vaciar Carro</button>
+                  </div>
+                  <div class="col-2 text-right">    
+                      <button type="button" id="buttonCheckoOut" class="btn btn-primary btn-block btn-lg">Pagar todo</button>
+                  </div>
+                  </div>  
+              </div>
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!--Inicio Footer-->
+    <footer id="footer" class="footer mt-5 py-3" style="background-color: #546c1b">
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+        <script src="js/cart.js"></script>
+        <script src="js/misc.js"></script>
+    
+    <!-- <script src="js/app.js"></script> -->
+</body>
+
+</html>

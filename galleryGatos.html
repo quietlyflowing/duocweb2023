@@ -15,8 +15,26 @@
 </head>
 
 <body>
-   <!--Inicio Navbar-->
-   <nav class="navbar navbar-expand-xl navbar-dark" aria-label="Barra de navegación" style="background-color: #546c1b">
+  <!--Inicio Modal Busqueda-->
+  <div class="modal fade" id="modalBusqueda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Búsqueda no disponible</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Aún no tenemos backend. Todavía no estoy funcionado.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Okey :&#40;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--Fin Modal Búsqueda--> 
+<!--Inicio Navbar-->
+<nav class="navbar navbar-expand-xl navbar-dark" aria-label="Barra de navegación" style="background-color: #546c1b">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Tienda PET</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample06"
@@ -41,7 +59,7 @@
             </ul>
         </div>
         <form role="search">
-            <input class="form-control" type="search" placeholder="Búsqueda" aria-label="Búsqueda">
+            <input class="form-control" data-bs-toggle="modal" data-bs-target="#modalBusqueda" type="search" id="busqueda" placeholder="Búsqueda" aria-label="Búsqueda">
         </form>
     </div>
 </nav>
