@@ -1,212 +1,296 @@
 <!DOCTYPE html>
 <html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>TiendaPET</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+			integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+			crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" 
+			integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+		<script src="js/db.js"></script>
+	</head>
+	<body>
+		<!--Inicio Modal Busqueda-->
+		<div class="modal fade" id="modalBusqueda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">Búsqueda no disponible</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Aún no tenemos backend. Todavía no estoy funcionado.
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Okey :&#40;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Fin Modal Búsqueda--> 
+		<!-- Inicio Navbar -->
+		<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #546c1b">
+			<div class="container-fluid">
+				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<a class="navbar-brand d-md-none" href="#" style="margin-left: -14rem !important;">TiendaPET</a>
+                <a class="navbar-brand d-none d-md-block" href="#">TiendaPET</a> <!--Oculto en la pantalla más pequeña-->
+				<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+					<div class="offcanvas-header" style="background-color: #546c1b">
+						<h5 class="navbar-brand" id="offcanvasNavbarLabel" style="--bs-navbar-brand-margin-end:16rem">TiendaPET</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+					</div>
+					<div class="offcanvas-body" style="background-color: #546c1b">
+						<ul class="navbar-nav me-auto">
+							<li class="nav-item">
+								<a class="nav-link active" href="galleryPerros.html">Productos para Perros</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" href="galleryGatos.html">Productos para Gatos</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" href="forma.html">Contacto</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<form role="search">
+					<input class="form-control" data-bs-toggle="modal" data-bs-target="#modalBusqueda" type="search" id="busqueda" placeholder="Búsqueda" aria-label="Búsqueda">
+				</form>
+			</div>
+		</nav>
+		<!--fin navbar-->
+		<!--inicio container-->
+		<div class="container">
+			<!--indicador de carrito de compra-->
+			<div class="d-flex py-3 align-items-center flex flex-row-reverse" id="indicadorCarrito">
+			</div>
+			<!--fin indicador de carrito-->
+			<!--Jumbotron-->
+			<div class="p-5 mb-4 mt-3 py-3 bg-dark rounded-3" style="background-image: url(img/boxer.jpg); 
+				background-repeat: no-repeat; background-position-x: right; background-position-y: 20%; background-size: 100%;">
+				<div class="container py-5">
+					<h1 class="display-5 fw-bold text-light">Somos TiendaPET</h1>
+					<p class="col-md-8 fs-4 text-light">¡Tenemos los mejores productos para tu mascota!</p>
+					<a class="btn btn-primary btn-lg" type="button" href="ourselves.html">Sobre Nosotros</a>
+				</div>
+			</div>
+			<!--FIN Jumbotron-->
+			<!--Inicio Alerta-->
+			<div class="alert" id="liveAlertPlaceholder"></div>
+			<!--Fin Alerta-->
+			<h1>Lo más visto</h1>
+            <!--Inicio Carousel-->
+			<div id="carouselExampleControls" class="carousel slide d-none d-md-block" data-bs-ride="carousel">
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"><i class="fa-solid fa-square-arrow-right"></i>
+				</button>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="row">
+							<div class="col-4">
+								<div class="card my-3 h-100">
+									<img src="img/correa-frutilla.png" class="card-image-top" alt="correa-frutilla">
+									<div class="card-body" style="background-color: #546c1b">
+										<h3 class="card-title" style="color: #f3f3f3" style="color: #f3f3f3">Correa Frutilla
+										</h3>
+										<p class="card-text" style="color: #f3f3f3">$7.990</p>
+										<button type="button" id="2" class="btn btn-primary">Agregar al Carro</button>
+										<button id="2" class="btn btn-secondary">Ver</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="card my-3 h-100">
+									<img src="img/correa-spiderman.png" class="card-image-top" alt="correa-spiderman" style="background-color: #546c1b">
+									<div class="card-body" style="background-color: #546c1b">
+										<h3 class="card-title" style="color: #f3f3f3">Correa Spiderman
+										</h3>
+										<p class="card-text" style="color: #f3f3f3">$12.000</p>
+										<button class="btn btn-primary" id="7">Agregar al Carro</button>
+										<button id="7" type="button" class="btn btn-secondary">Ver</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="card my-3 h-100">
+									<img src="img/correa-avengers.png" class="card-image-top" alt="correa-avengers" style="background-color: #546c1b">
+									<div class="card-body" style="background-color: #546c1b">
+										<h3 class="card-title" style="color: #f3f3f3">Correa Avengers
+										</h3>
+										<p class="card-text" style="color: #f3f3f3">$9.990</p>
+										<button class="btn btn-primary" id="8">Agregar al Carro</button>
+										<button type="button" id="8" class="btn btn-secondary">Ver</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-4">
+								<div class="card my-3 h-100">
+									<img src="img/bandana-navidad.png" class="card-image-top" alt="bandana-Navidad">
+									<div class="card-body" style="background-color: #546c1b">
+										<h3 class="card-title" style="color: #f3f3f3">Bandana Navidad
+										</h3>
+										<p class="card-text" style="color: #f3f3f3">$3.000</p>
+										<button class="btn btn-primary" id="6">Agregar al Carro</class>
+										<button id="6" type="button" class="btn btn-secondary">Ver</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="card my-3 h-100">
+									<img src="img/bandana-flores.png" class="card-image-top" alt="bandana-flores">
+									<div class="card-body" style="background-color: #546c1b">
+										<article id="5" price="3990" qty="1">
+											<h3 class="card-title" style="color: #f3f3f3">Bandana Flores
+											</h3>
+											<p class="card-text" style="color: #f3f3f3">$3.990</p>
+										</article>
+										<button class="btn btn-primary" id="5">Agregar al Carro</button>
+										<button type="button" id="5" class="btn btn-secondary">Ver</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="card my-3 h-100">
+									<img src="img/bandana-marinero.png" class="card-image-top" alt="bandana-marinero">
+									<div class="card-body" style="background-color: #546c1b">
+										<h3 class="card-title" style="color: #f3f3f3">Bandana Marinero</a>
+										</h3>
+										<p class="card-text" style="color: #f3f3f3">$3.000</p>
+										<button class="btn btn-primary" id="12">Agregar al Carro</button>
+										<button type="button" id="12" class="btn btn-secondary">Ver</button>
+									</div>
+								</div>
+                            </div>
+						</div>
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+					data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+					data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+            <!--Fin Carousel Lienzo ancho-->
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TiendaPET</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" 
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="js/db.js"></script>
-    </head>
-
-<body>
-    <!--Inicio Modal Busqueda-->
-    <div class="modal fade" id="modalBusqueda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Búsqueda no disponible</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Aún no tenemos backend. Todavía no estoy funcionado.
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Okey :&#40;</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    <!--Fin Modal Búsqueda--> 
-    <!--Inicio Navbar-->
-    <nav class="navbar navbar-expand-xl navbar-dark" aria-label="Barra de navegación" style="background-color: #546c1b">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Tienda PET</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample06"
-                aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarsExample06">
-                <ul class="navbar-nav me-auto mb-2 mb-xl-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="galleryPerros.html">Productos para Perros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="galleryGatos.html">Productos para Gatos</a>
-                    </li>
-            
-                    <li class="nav-item">
-                        <a class="nav-link active" href="forma.html">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-            <form role="search">
-                <input class="form-control" data-bs-toggle="modal" data-bs-target="#modalBusqueda" type="search" id="busqueda" placeholder="Búsqueda" aria-label="Búsqueda">
-            </form>
-        </div>
-    </nav>
-    <!--fin navbar-->
-
-    <!--inicio container-->
-    <div class="container">
-        
-        <!--indicador de carrito de compra-->
-        <div class="d-flex py-3 align-items-center flex flex-row-reverse" id="indicadorCarrito">
-           
-        </div>
-        <!--fin indicador de carrito-->
-
-        <!--Jumbotron-->
-        <div class="p-5 mb-4 mt-3 py-3 bg-dark rounded-3" style="background-image: url(img/boxer.jpg); 
-        background-repeat: no-repeat; background-position-x: right; background-position-y: 20%; background-size: 100%;">
-            <div class="container py-5">
-                <h1 class="display-5 fw-bold text-light">Somos TiendaPET</h1>
-                <p class="col-md-8 fs-4 text-light">¡Tenemos los mejores productos para tu mascota!</p>
-                <button class="btn btn-primary btn-lg" type="button">Sobre Nosotros</button>
-            </div>
-        </div>
-        <!--FIN Jumbotron-->
-        <!--Inicio Alerta-->
-        <div class="alert" id="liveAlertPlaceholder"></div>
-    <!--Fin Alerta-->
-    
-        <h1>Lo más visto</h1>
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="card my-3">
-                                <img src="img/correa-frutilla.jpg" class="card-image-top" alt="correa-frutilla">
-                                <div class="card-body">
-                                        <h3 class="card-title">Correa Frutilla
-                                        </h3>
-                                        <p class="card-text">$7.990</p>
-                                    <button type="button" id="2" class="btn btn-primary">Agregar al Carro</button>
-                                    <button id="2" class="btn btn-secondary">Ver</button>
-                                </div>
+            <!--Inicio Carousel Mobil-->
+            <div id="carouselExampleControls" class="carousel slide d-md-none" data-bs-ride="carousel">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"><i class="fa-solid fa-square-arrow-right"></i>
+                </button>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card my-3 h-100">
+                            <img src="img/correa-frutilla.png" class="card-image-top" alt="correa-frutilla">
+                            <div class="card-body" style="background-color: #546c1b">
+                                <h3 class="card-title" style="color: #f3f3f3" style="color: #f3f3f3">Correa Frutilla
+                                </h3>
+                                <p class="card-text" style="color: #f3f3f3">$7.990</p>
+                                <button type="button" id="2" class="btn btn-primary">Agregar al Carro</button>
+                                <button id="2" class="btn btn-secondary">Ver</button>
                             </div>
                         </div>
-                        <div class="col-4">
-
-                            <div class="card my-3">
-                                <img src="img/correa-spiderman.jpg" class="card-image-top" alt="correa-spiderman">
-                                <div class="card-body">
-                                        <h3 class="card-title">Correa Spiderman
-                                        </h3>
-                                        <p class="card-text">$12.000</p>
-                                    <button class="btn btn-primary" id="7">Agregar al Carro</button>
-                                    <button id="7" type="button" class="btn btn-secondary">Ver</button>
-                                </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card my-3 h-100">
+                            <img src="img/correa-spiderman.png" class="card-image-top" alt="correa-spiderman" style="background-color: #546c1b">
+                            <div class="card-body" style="background-color: #546c1b">
+                                <h3 class="card-title" style="color: #f3f3f3">Correa Spiderman
+                                </h3>
+                                <p class="card-text" style="color: #f3f3f3">$12.000</p>
+                                <button class="btn btn-primary" id="7">Agregar al Carro</button>
+                                <button id="7" type="button" class="btn btn-secondary">Ver</button>
                             </div>
-
                         </div>
-                        <div class="col-4">
-
-                            <div class="card my-3">
-
-                                <img src="img/correa-avengers.jpg" class="card-image-top" alt="correa-avengers">
-
-                                <div class="card-body">
-                                        <h3 class="card-title">Correa Avengers
-                                        </h3>
-                                        <p class="card-text">$9.990</p>
-                                    <button class="btn btn-primary" id="8">Agregar al Carro</button>
-                                    <button type="button" id="8" class="btn btn-secondary">Ver</button>
-                                </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card my-3 h-100">
+                            <img src="img/correa-avengers.png" class="card-image-top" alt="correa-avengers" style="background-color: #546c1b">
+                            <div class="card-body" style="background-color: #546c1b">
+                                <h3 class="card-title" style="color: #f3f3f3">Correa Avengers
+                                </h3>
+                                <p class="card-text" style="color: #f3f3f3">$9.990</p>
+                                <button class="btn btn-primary" id="8">Agregar al Carro</button>
+                                <button type="button" id="8" class="btn btn-secondary">Ver</button>
                             </div>
-
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card my-3 h-100">
+                            <img src="img/bandana-navidad.png" class="card-image-top" alt="bandana-Navidad">
+                            <div class="card-body" style="background-color: #546c1b">
+                                <h3 class="card-title" style="color: #f3f3f3">Bandana Navidad
+                                </h3>
+                                <p class="card-text" style="color: #f3f3f3">$3.000</p>
+                                <button class="btn btn-primary" id="6">Agregar al Carro</class>
+                                <button id="6" type="button" class="btn btn-secondary">Ver</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card my-3 h-100">
+                            <img src="img/bandana-flores.png" class="card-image-top" alt="bandana-flores">
+                            <div class="card-body" style="background-color: #546c1b">
+                                <article id="5" price="3990" qty="1">
+                                    <h3 class="card-title" style="color: #f3f3f3">Bandana Flores
+                                    </h3>
+                                    <p class="card-text" style="color: #f3f3f3">$3.990</p>
+                                </article>
+                                <button class="btn btn-primary" id="5">Agregar al Carro</button>
+                                <button type="button" id="5" class="btn btn-secondary">Ver</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card my-3 h-100">
+                            <img src="img/bandana-marinero.png" class="card-image-top" alt="bandana-marinero">
+                            <div class="card-body" style="background-color: #546c1b">
+                                <h3 class="card-title" style="color: #f3f3f3">Bandana Marinero</a>
+                                </h3>
+                                <p class="card-text" style="color: #f3f3f3">$3.000</p>
+                                <button class="btn btn-primary" id="12">Agregar al Carro</button>
+                                <button type="button" id="12" class="btn btn-secondary">Ver</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="card my-3">
-
-                                <img src="img/bandana-navidad.jpg" class="card-image-top" alt="bandana-Navidad">
-
-                                <div class="card-body">
-                                        <h3 class="card-title">Bandana Navidad
-                                        </h3>
-                                        <p class="card-text">$3.000</p>
-                                        <button class="btn btn-primary" id="6">Agregar al Carro</class>
-                                        <button id="6" type="button" class="btn btn-secondary">Ver</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card my-3">
-
-                                <img src="img/bandana-flores.jpg" class="card-image-top" alt="bandana-flores">
-                                <div class="card-body">
-                                    <article id="5" price="3990" qty="1">
-                                        <h3 class="card-title">Bandana Flores
-                                        </h3>
-                                        <p class="card-text">$3.990</p>
-                                    </article>
-                                    <button class="btn btn-primary" id="5">Agregar al Carro</button>
-                                    <button type="button" id="5" class="btn btn-secondary">Ver</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card my-3">
-
-                                <img src="img/bandana-marinero.jpg" class="card-image-top" alt="bandana-marinero">
-
-                                <div class="card-body">
-                                        <h3 class="card-title">Bandana Marinero</a>
-                                        </h3>
-                                        <p class="card-text">$3.000</p>
-                                    <button class="btn btn-primary" id="12">Agregar al Carro</button>
-                                    <button type="button" id="12" class="btn btn-secondary">Ver</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="next">
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    
-    </div>
-
-    <!--Fin Navbar-->
-    <!--Inicio Footer-->
-    <footer id="footer" class="footer mt-5 py-3" style="background-color: #546c1b">
-    </footer>
+                </button>
+            </div>
+            </div>
+            <!--Fin Carousel-->
+            <!--Fin carousel Mobil-->
+		</div>
+		
 
 
+        
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="js/misc.js"></script>
-    <script src="js/app.js"></script>
-</body>
-
+		<!--Inicio Footer-->
+		<footer id="footer" class="footer mt-5 py-3 d-none d-md-block" style="background-color: #546c1b">
+		</footer>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
+			integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+		<script src="js/misc.js"></script>
+		<script src="js/app.js"></script>
+	</body>
 </html>
+
